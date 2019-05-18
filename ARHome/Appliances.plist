@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>BoundingBox</key>
+		<dict>
+			<key>Position</key>
+			<dict>
+				<key>x</key>
+				<integer>0</integer>
+				<key>y</key>
+				<real>-0.4</real>
+				<key>z</key>
+				<real>0.25</real>
+			</dict>
+			<key>Scale</key>
+			<dict>
+				<key>x</key>
+				<real>0.8</real>
+				<key>y</key>
+				<real>0.54</real>
+				<key>z</key>
+				<real>0.1</real>
+			</dict>
+		</dict>
+		<key>Key</key>
+		<string>Ceiling light</string>
+		<key>MenuItems</key>
+		<array>
+			<dict>
+				<key>Action</key>
+				<dict>
+					<key>Type</key>
+					<string>Signal</string>
+					<key>SignalID</key>
+					<string>00000000-0000-0000-0000-000000000000</string>
+				</dict>
+				<key>Caption</key>
+				<string>OFF</string>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>
