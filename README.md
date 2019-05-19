@@ -29,7 +29,52 @@ let accessToken = ""
 Nature Remo APIのアクセストークンの取得については[こちら](https://developer.nature.global)を参照してください。
 
 #### 家電リストの設定
-TBD
+
+`Appliances.plist`の中に家電の設定を記述できます。
+
+```
+<array>
+	<dict>
+		<key>BoundingBox</key>
+		<dict>
+			<key>Position</key>
+			<dict>
+				<key>x</key>
+				<integer>0</integer>
+				<key>y</key>
+				<real>-0.4</real>
+				<key>z</key>
+				<real>0.25</real>
+			</dict>
+			<key>Scale</key>
+			<dict>
+				<key>x</key>
+				<real>0.8</real>
+				<key>y</key>
+				<real>0.54</real>
+				<key>z</key>
+				<real>0.1</real>
+			</dict>
+		</dict>
+		<key>Key</key>
+		<string>Ceiling light</string>
+		<key>MenuItems</key>
+		<array>
+			<dict>
+				<key>Action</key>
+				<dict>
+					<key>Type</key>
+					<string>Signal</string>
+					<key>SignalID</key>
+					<string>00000000-0000-0000-0000-000000000000</string>
+				</dict>
+				<key>Caption</key>
+				<string>OFF</string>
+			</dict>
+		</array>
+	</dict>
+</array>
+```
 
 ## 著作権表示
 * エフェクトで使用しているテクスチャは[52 Complex Hi-Tech Sci-Fi Circle Brushes](https://www.deviantart.com/xresch/art/52-Complex-Hi-Tech-Sci-Fi-Circle-Brushes-701905546)を使って生成しています。
