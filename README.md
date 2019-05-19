@@ -13,6 +13,10 @@ CoocaPodsで必要なライブラリをインストールしてください。
 pod install
 ```
 
+### マーカーの画像
+
+適当なマーカー画像を`Assets.xcassets`の`AR Resources`に登録してください。画像名が後述の家電リストの家電のKeyになります。物理サイズの設定もお忘れなく。
+
 ### Nature Remo設定
 #### Nature Remo API Access Tokenの設定
 
