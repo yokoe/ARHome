@@ -79,6 +79,7 @@ Nature Remo APIのアクセストークンの取得については[こちら](ht
 * `Key`はマーカー画像のNameを指定してください。
 * `MenuItems`にその家電のマーカーをタップした時に表示されるメニューの設定を記述します。
 * `Signal`タイプのメニュー項目の場合、`SignalID`にNature Remoに送信するSignalのIDを設定してください。
+* `BoundingBox`には、物体の上にオーバーレイするボックスの位置(マーカーの中央からの相対位置 / 単位m)と大きさを指定できますが、動作に支障はないので面倒であれば設定しなくてOKです。
 
 ## 著作権表示
 * エフェクトで使用しているテクスチャは[52 Complex Hi-Tech Sci-Fi Circle Brushes](https://www.deviantart.com/xresch/art/52-Complex-Hi-Tech-Sci-Fi-Circle-Brushes-701905546)を使って生成しています。
