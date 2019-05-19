@@ -76,6 +76,10 @@ Nature Remo APIのアクセストークンの取得については[こちら](ht
 </array>
 ```
 
+* `Key`はマーカー画像のNameを指定してください。
+* `MenuItems`にその家電のマーカーをタップした時に表示されるメニューの設定を記述します。
+* `Signal`タイプのメニュー項目の場合、`SignalID`にNature Remoに送信するSignalのIDを設定してください。
+
 ## 著作権表示
 * エフェクトで使用しているテクスチャは[52 Complex Hi-Tech Sci-Fi Circle Brushes](https://www.deviantart.com/xresch/art/52-Complex-Hi-Tech-Sci-Fi-Circle-Brushes-701905546)を使って生成しています。
 * UIには[Michromaフォント](https://fonts.google.com/specimen/Michroma)を使用しています。
