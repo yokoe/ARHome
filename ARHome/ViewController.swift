@@ -77,6 +77,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     private var remoAPI: RemoAPI?
     
+    private let ciContext = CIContext()
+    private let gammaAdjustFilter = CIFilter(name: "CIGammaAdjust")!
+    private var backgroundDarkened: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -272,6 +276,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     private func toggleMenu(markerNode: MarkerNode) {
         markerNode.isMenuOpen = !markerNode.isMenuOpen
+        backgroundDarkened = markerNode.isMenuOpen // TODO: 複数メニューがオープンされた時のケースを考慮する
         if markerNode.isMenuOpen {
             debugMessage("OPEN MENU: \(markerNode.name!)")
         } else {
@@ -306,7 +311,25 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         return node
     }
     
-    
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        guard let currentFrame = sceneView.session.currentFrame else { return }
+        
+        let ciImage = CIImage(cvPixelBuffer: currentFrame.capturedImage)
+        gammaAdjustFilter.setValue(ciImage, forKey: kCIInputImageKey)
+        gammaAdjustFilter.setValue(backgroundDarkened ? 3 : 1, forKey: "inputPower")
+        
+        let screenSize = UIScreen.main.bounds.size
+        let scaleW = ciImage.extent.width / screenSize.width
+        let scaleH = ciImage.extent.height / screenSize.height
+        let scale = min(scaleW, scaleH)
+        let cropWidth = screenSize.width * scale
+        let cropHeight = screenSize.height * scale
+        
+        if let gammaAdjusted = gammaAdjustFilter.outputImage,
+            let cgImage = ciContext.createCGImage(gammaAdjusted, from: CGRect(x: (ciImage.extent.width - cropWidth) * 0.5, y: (ciImage.extent.height - cropHeight) * 0.5, width: cropWidth, height: cropHeight)) {
+            sceneView.scene.background.contents = cgImage
+        }
+    }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
